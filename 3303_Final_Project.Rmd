@@ -1,0 +1,86 @@
+---
+title: "3303_Final_Project"
+author: "Jike Zhong"
+date: "4/16/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(nnet) 
+```
+
+```{R}
+# for Gardening
+set.seed(0)
+data = read.csv("data.csv")
+data = subset(data, GeographyCatNum!=99 & GenderCatNum!=99 & EmploymentCatNum !=99 & Race.EthnicityCatNum!= 99 & IncomeCatNum!=99 & Age>=18 & Zip!=99 & UATYP10!=99 & GardeningOrdinalScaleNum!=1 &GardeningOrdinalScaleNum!=0)
+nrow(data)
+model = multinom(GardeningOrdinalScaleNum~GeographyCatNumInverse+GenderCatNum+Race.EthnicityCatNum+IncomeCatNum+EmploymentCatNum, data= data)
+
+summary(model)
+
+```
+
+```{R}
+# for Hiking
+data = read.csv("data.csv")
+data = subset(data, GeographyCatNum!=99 & GenderCatNum!=99 & EmploymentCatNum !=99 & Race.EthnicityCatNum!= 99 & IncomeCatNum!=99 & Age>=18 & Zip!=99 & UATYP10!=99 & HikingOrdinalScaleNum!=1 &HikingOrdinalScaleNum!=0)
+nrow(data)
+model = multinom(HikingOrdinalScaleNum~GeographyCatNumInverse+GenderCatNum+Race.EthnicityCatNum+IncomeCatNum+EmploymentCatNum, data= data)
+
+summary(model)
+```
+
+```{R}
+#for Relax Socially Increase
+data = read.csv("data.csv")
+data = subset(data, GeographyCatNum!=99 & GenderCatNum!=99 & EmploymentCatNum !=99 & Race.EthnicityCatNum!= 99 & IncomeCatNum!=99 & Age>=18 & Zip!=99 & UATYP10!=99 & RelaxOthersOrdinalScaleNum!=1 &RelaxOthersOrdinalScaleNum!=0)
+nrow(data)
+model = multinom(RelaxOthersOrdinalScaleNum~GeographyCatNumInverse+GenderCatNum+Race.EthnicityCatNum+IncomeCatNum+EmploymentCatNum, data= data)
+
+summary(model)
+```
+
+
+```{R}
+#for relaxing socially decrease
+data = read.csv("data.csv")
+data = subset(data, GeographyCatNum!=99 & GenderCatNum!=99 & EmploymentCatNum !=99 & Race.EthnicityCatNum!= 99 & IncomeCatNum!=99 & Age>=18 & Zip!=99 & UATYP10!=99 & RelaxOthersOrdinalScaleNum!=3 &RelaxOthersOrdinalScaleNum!=0)
+nrow(data)
+model = multinom(RelaxOthersOrdinalScaleNum~GeographyCatNumInverse+GenderCatNum+Race.EthnicityCatNum+IncomeCatNum+EmploymentCatNum, data= data)
+
+summary(model)
+```
+
+```{R}
+# For relaxing independently
+data = read.csv("data.csv")
+data = subset(data, GeographyCatNum!=99 & GenderCatNum!=99 & EmploymentCatNum !=99 & Race.EthnicityCatNum!= 99 & IncomeCatNum!=99 & Age>=18 & Zip!=99 & UATYP10!=99 & RelaxMyselfOrdinalScaleNum!=1 &RelaxMyselfOrdinalScaleNum!=0)
+nrow(data)
+model = multinom(RelaxMyselfOrdinalScaleNum~GeographyCatNumInverse+GenderCatNum+Race.EthnicityCatNum+IncomeCatNum+EmploymentCatNum, data= data)
+
+summary(model)
+```
+
+```{R}
+#for walking 
+data = read.csv("data.csv")
+data = subset(data, GeographyCatNum!=99 & GenderCatNum!=99 & EmploymentCatNum !=99 & Race.EthnicityCatNum!= 99 & IncomeCatNum!=99 & Age>=18 & Zip!=99 & UATYP10!=99 & WalkingOrdinalScaleNum!=1 &WalkingOrdinalScaleNum!=0)
+nrow(data)
+model = multinom(WalkingOrdinalScaleNum~GeographyCatNumInverse+GenderCatNum+Race.EthnicityCatNum+IncomeCatNum+EmploymentCatNum, data= data)
+
+summary(model)
+```
+
+```{R}
+#for wildlife
+data = read.csv("data.csv")
+data = subset(data, GeographyCatNum!=99 & GenderCatNum!=99 & EmploymentCatNum !=99 & Race.EthnicityCatNum!= 99 & IncomeCatNum!=99 & Age>=18 & Zip!=99 & UATYP10!=99 & WildlifeOrdinalScaleNum!=1 &WildlifeOrdinalScaleNum!=0)
+nrow(data)
+model = multinom(WildlifeOrdinalScaleNum~GeographyCatNumInverse+GenderCatNum+Race.EthnicityCatNum+IncomeCatNum+EmploymentCatNum, data= data)
+
+summary(model)
+```
+
+
